@@ -49,7 +49,7 @@ func main() {
 	userHandler := handler.NewUserHandler(userService)
 
 	// Routes
-	router := routes.SetupRoutes(userHandler)
+	router := routes.SetupRoutes(userHandler, cfg.JWTSecret)
 
 	// Start server
 	log.Println("Server running on port 8080")

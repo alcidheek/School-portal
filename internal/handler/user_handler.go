@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/alcidheek/school-portal/internal/middleware"
 	"github.com/alcidheek/school-portal/internal/model"
 	"github.com/alcidheek/school-portal/internal/service"
 )
@@ -119,4 +120,25 @@ func (h *UserHandler) Login(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 
 	json.NewEncoder(w).Encode(response)
+}
+
+func (h *UserHandler) Me(w http.ResponseWriter, r *http.Request) {
+
+	userID := r.Context().Value(middleware.UserIDKey)
+	email := r.Context().Value(middleware.EmailKey)
+	role := r.Context().Value(middleware.RoleKey)
+
+	response := map[string]interface{}{
+		"user_id": userID,
+		"email":   email,
+		"role":    role,
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+}
+
+func (h *UserHandler) AdminTest(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("welcome admin"))
 }
