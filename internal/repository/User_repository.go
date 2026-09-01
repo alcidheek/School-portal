@@ -64,6 +64,25 @@ func (r *UserRepository) CreateUser(
 	)
 }
 
+func (r *UserRepository) AdminExists(ctx context.Context) (bool, error) {
+	var exists bool
+
+	query := `
+		SELECT EXISTS(
+			SELECT 1
+			FROM users
+			WHERE role = 'ADMIN'
+		)
+	`
+
+	err := r.db.QueryRowContext(ctx, query).Scan(&exists)
+	if err != nil {
+		return false, err
+	}
+
+	return exists, nil
+}
+
 func (r *UserRepository) GetUserByID(
 	ctx context.Context,
 	id uuid.UUID,

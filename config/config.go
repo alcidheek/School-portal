@@ -8,8 +8,12 @@ import (
 )
 
 type Config struct {
-	DatabaseURL string
-	JWTSecret   string
+	DatabaseURL          string
+	JWTSecret            string
+	InitialAdminFullName string
+	InitialAdminEmail    string
+	InitialAdminPhone    string
+	InitialAdminPassword string
 }
 
 func Load() (*Config, error) {
@@ -19,6 +23,10 @@ func Load() (*Config, error) {
 	}
 
 	databaseURL := os.Getenv("DATABASE_URL")
+	initialAdminFullName := os.Getenv("INITIAL_ADMIN_FULL_NAME")
+	initialAdminEmail := os.Getenv("INITIAL_ADMIN_EMAIL")
+	initialAdminPhone := os.Getenv("INITIAL_ADMIN_PHONE")
+	initialAdminPassword := os.Getenv("INITIAL_ADMIN_PASSWORD")
 
 	if databaseURL == "" {
 		return nil, fmt.Errorf("DATABASE_URL is not set")
@@ -31,7 +39,11 @@ func Load() (*Config, error) {
 	}
 
 	return &Config{
-		DatabaseURL: databaseURL,
-		JWTSecret:   jwtSecret,
+		DatabaseURL:          databaseURL,
+		JWTSecret:            jwtSecret,
+		InitialAdminFullName: initialAdminFullName,
+		InitialAdminEmail:    initialAdminEmail,
+		InitialAdminPhone:    initialAdminPhone,
+		InitialAdminPassword: initialAdminPassword,
 	}, nil
 }

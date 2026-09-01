@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"strings"
 
@@ -177,4 +178,45 @@ func (s *UserService) Login(
 	}
 
 	return token, user, nil
+}
+
+func (s *UserService) BootstrapAdmin(
+	ctx context.Context,
+	fullName string,
+	email string,
+	phone string,
+	password string,
+) error {
+	exists, err := s.userRepo.AdminExists(ctx)
+	if err != nil {
+		return fmt.Errorf("check admin existence: %w", err)
+	}
+
+	if exists {
+		return nil
+	}
+
+	hashedPassword, err := bcrypt.GenerateFromPassword(
+		[]byte(password),
+		bcrypt.DefaultCost,
+	)
+	if err != nil {
+		return fmt.Errorf("hash admin password: %w", err)
+	}
+
+	admin := &model.User{
+		ID:           uuid.New(),
+		FullName:     fullName,
+		Email:        strings.ToLower(email),
+		Phone:        phone,
+		PasswordHash: string(hashedPassword),
+		Role:         model.RoleAdmin,
+		IsActive:     true,
+	}
+
+	if err := s.userRepo.CreateUser(ctx, admin); err != nil {
+		return fmt.Errorf("create initial admin: %w", err)
+	}
+
+	return nil
 }

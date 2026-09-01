@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 
@@ -44,6 +45,21 @@ func main() {
 
 	// Service
 	userService := service.NewUserService(userRepo, cfg.JWTSecret)
+
+	log.Println("Checking initial admin...")
+
+	err = userService.BootstrapAdmin(
+		context.Background(),
+		cfg.InitialAdminFullName,
+		cfg.InitialAdminEmail,
+		cfg.InitialAdminPhone,
+		cfg.InitialAdminPassword,
+	)
+	if err != nil {
+		log.Fatalf("bootstrap admin: %v", err)
+	}
+
+	log.Println("Initial admin check completed")
 
 	// Handler
 	userHandler := handler.NewUserHandler(userService)

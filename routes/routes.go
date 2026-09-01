@@ -16,9 +16,13 @@ func SetupRoutes(
 	mux := http.NewServeMux()
 
 	// User routes
-	mux.HandleFunc(
-		"POST /auth/register",
-		userHandler.RegisterUser,
+	mux.Handle(
+		"/auth/register",
+		middleware.AuthMiddleware(jwtSecret)(
+			middleware.RequireRole(model.RoleAdmin)(
+				http.HandlerFunc(userHandler.RegisterUser),
+			),
+		),
 	)
 
 	//login routes
