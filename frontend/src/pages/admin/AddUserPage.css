@@ -1,0 +1,152 @@
+.add-user-content {
+  padding: 32px;
+}
+
+.add-user-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.add-user-heading h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 21px;
+}
+
+.add-user-heading p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.back-users-button {
+  padding: 10px 15px;
+  background: transparent;
+  border: 1px solid #263247;
+  border-radius: 8px;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.back-users-button:hover {
+  background: #172033;
+}
+
+/* Main form card */
+.add-user-card {
+  max-width: 850px;
+  padding: 28px;
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+/* Two-column form */
+.add-user-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  height: 44px;
+  padding: 0 13px;
+  background: #0b1220;
+  border: 1px solid #263247;
+  border-radius: 8px;
+  color: #e2e8f0;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #526078;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #38bdf8;
+}
+
+/* Elements that occupy both columns */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.cancel-user-button,
+.create-user-button {
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-user-button {
+  background: transparent;
+  border: 1px solid #263247;
+  color: #cbd5e1;
+}
+
+.create-user-button {
+  background: #0ea5e9;
+  border: 1px solid #0ea5e9;
+  color: white;
+}
+
+.create-user-button:hover {
+  background: #0284c7;
+}
+
+/* Stack the form on smaller screens */
+@media (max-width: 750px) {
+  .add-user-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .add-user-form {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+}
+
+/* Registration error returned by the backend */
+.form-error {
+  padding: 12px 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 13px;
+}
+
+.create-user-button:disabled,
+.cancel-user-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

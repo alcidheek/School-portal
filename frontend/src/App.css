@@ -1,0 +1,363 @@
+/* ---------- PAGE ---------- */
+
+.login-page {
+  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  padding: 24px;
+
+  background:
+    radial-gradient(circle at 15% 85%, #072846 0%, transparent 30%),
+    radial-gradient(circle at 85% 15%, #081d3c 0%, transparent 30%),
+    #02060b;
+}
+
+
+/* ---------- LOGIN CARD ---------- */
+
+.login-card {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: 42px 46px;
+
+  border: 1px solid #27415c;
+  border-radius: 24px;
+
+  background: rgba(5, 13, 23, 0.94);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 35px rgba(34, 156, 224, 0.06);
+}
+
+
+/* ---------- SCHOOL NAME ---------- */
+
+.school-header {
+  text-align: center;
+}
+
+.school-header h2 {
+  font-size: 32px;
+  letter-spacing: -1px;
+}
+
+.school-header h2 span {
+  color: #2fb8f1;
+}
+
+.school-header p {
+  margin-top: 2px;
+
+  color: #d6dce5;
+  font-size: 16px;
+}
+
+.heading-divider {
+  width: 130px;
+  height: 1px;
+
+  margin: 20px auto 24px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #2fb8f1,
+    transparent
+  );
+}
+
+
+/* ---------- HEADING ---------- */
+
+.login-card h1 {
+  margin-bottom: 8px;
+
+  text-align: center;
+  font-size: 30px;
+}
+
+.subtitle {
+  margin-bottom: 32px;
+
+  text-align: center;
+
+  color: #8d9aaa;
+}
+
+
+/* ---------- FORM ---------- */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #e1e6ec;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 16px;
+
+  border: 1px solid #314257;
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #0a1320;
+  color: white;
+
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.form-group input::placeholder {
+  color: #65758a;
+}
+
+.form-group input:focus {
+  border-color: #31b7ee;
+
+  box-shadow:
+    0 0 0 3px rgba(49, 183, 238, 0.1);
+}
+
+
+/* ---------- FORGOT PASSWORD ---------- */
+
+.forgot-password {
+  margin-top: -5px;
+  margin-bottom: 25px;
+
+  text-align: right;
+}
+
+.forgot-password a {
+  color: #36c5f4;
+
+  font-size: 14px;
+
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- SIGN IN BUTTON ---------- */
+
+.login-card button {
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+  border-radius: 11px;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    90deg,
+    #1ec7e9,
+    #287be8,
+    #3f55e7
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.login-card button span {
+  margin-left: 8px;
+
+  font-size: 20px;
+}
+
+.login-card button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 25px rgba(36, 143, 231, 0.25);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.login-footer {
+  margin-top: 28px;
+
+  text-align: center;
+
+  color: #738195;
+
+  font-size: 12px;
+}
+
+
+/* ---------- MOVING BOOKS ---------- */
+
+.book-background {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.book-background span {
+  position: absolute;
+
+  font-size: 30px;
+
+  opacity: 0;
+
+  filter: grayscale(30%);
+
+  animation: floatBook 18s linear infinite;
+}
+
+
+/* Different positions and speeds */
+
+.book-background span:nth-child(1) {
+  left: 8%;
+  top: 80%;
+
+  animation-delay: 0s;
+}
+
+.book-background span:nth-child(2) {
+  left: 18%;
+  top: 35%;
+
+  animation-delay: -6s;
+}
+
+.book-background span:nth-child(3) {
+  left: 30%;
+  top: 75%;
+
+  animation-delay: -11s;
+}
+
+.book-background span:nth-child(4) {
+  left: 70%;
+  top: 80%;
+
+  animation-delay: -4s;
+}
+
+.book-background span:nth-child(5) {
+  left: 82%;
+  top: 40%;
+
+  animation-delay: -13s;
+}
+
+.book-background span:nth-child(6) {
+  left: 92%;
+  top: 75%;
+
+  animation-delay: -8s;
+}
+
+.book-background span:nth-child(7) {
+  left: 12%;
+  top: 15%;
+
+  animation-delay: -15s;
+}
+
+.book-background span:nth-child(8) {
+  left: 88%;
+  top: 15%;
+
+  animation-delay: -2s;
+}
+
+
+/* Move books upward while gently rotating */
+
+@keyframes floatBook {
+  0% {
+    transform:
+      translateY(120px)
+      rotate(-8deg);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.25;
+  }
+
+  50% {
+    transform:
+      translateY(-20px)
+      translateX(25px)
+      rotate(6deg);
+
+    opacity: 0.4;
+  }
+
+  85% {
+    opacity: 0.2;
+  }
+
+  100% {
+    transform:
+      translateY(-250px)
+      translateX(-15px)
+      rotate(-4deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 540px) {
+  .login-card {
+    padding: 32px 22px;
+  }
+
+  .school-header h2 {
+    font-size: 27px;
+  }
+
+  .login-card h1 {
+    font-size: 26px;
+  }
+
+  .book-background span {
+    font-size: 23px;
+  }
+}

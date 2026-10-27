@@ -1,0 +1,15 @@
+/* Reset the browser's default spacing. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles for the whole portal. */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080b10;
+  color: #f5f7fa;
+}

@@ -1,0 +1,527 @@
+
+/* ==========================================
+   BLUEPRINT - TEACHER ASSIGNMENT
+   ========================================== */
+
+.teacher-assignment-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  padding: 16px 20px 32px;
+  color: #f4f6ff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.teacher-assignment-page *,
+.teacher-assignment-page *::before,
+.teacher-assignment-page *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   PAGE BANNER
+   ========================================== */
+
+.teacher-assignment-banner {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 124px;
+  padding: 22px 30px;
+  overflow: hidden;
+  border: 1px solid #1559a5;
+  border-radius: 12px;
+  background: linear-gradient(
+    110deg,
+    #063a83,
+    #0754a8 60%,
+    #05356e
+  );
+}
+
+.teacher-assignment-banner > div {
+  position: relative;
+  z-index: 1;
+  max-width: 80%;
+}
+
+.teacher-assignment-banner h1 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.teacher-assignment-banner p {
+  margin: 0;
+  color: #d7e5f8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.teacher-assignment-banner-icon {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  width: 100px;
+  height: 100px;
+  transform: translateY(-50%);
+  color: #168cff;
+  opacity: 0.7;
+  stroke-width: 2;
+}
+
+/* ==========================================
+   STATISTICS CARDS
+   ========================================== */
+
+.teacher-assignment-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.teacher-assignment-stat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  min-height: 108px;
+  padding: 17px;
+  border: 1px solid #174064;
+  border-radius: 11px;
+  background: #06213a;
+}
+
+.teacher-assignment-stat-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.teacher-assignment-stat-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.teacher-assignment-stat-icon.blue {
+  background: #0752a1;
+  color: #65baff;
+}
+
+.teacher-assignment-stat-icon.green {
+  background: #006951;
+  color: #86f3ce;
+}
+
+.teacher-assignment-stat-icon.orange {
+  background: #80531f;
+  color: #ffd17b;
+}
+
+.teacher-assignment-stat-icon.purple {
+  background: #42268e;
+  color: #c6a4ff;
+}
+
+.teacher-assignment-stat > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.teacher-assignment-stat span {
+  color: #bed0e7;
+  font-size: 13px;
+}
+
+.teacher-assignment-stat strong {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ASSIGNMENT MANAGEMENT PANEL
+   ========================================== */
+
+.teacher-assignment-panel {
+  width: 100%;
+  min-width: 0;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid #174064;
+  border-radius: 12px;
+  background: #061d33;
+}
+
+.teacher-assignment-heading h2 {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.teacher-assignment-heading p {
+  margin: 0 0 20px;
+  color: #9db5d2;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   SESSION, TERM & CLASS FILTERS
+   ========================================== */
+
+.teacher-assignment-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.teacher-assignment-filters label,
+.teacher-assignment-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: #b9cce4;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.teacher-assignment-filters select,
+.teacher-assignment-form-grid select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #245078;
+  border-radius: 7px;
+  background: #0a2a4b;
+  color: #e8f1ff;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.teacher-assignment-filters select:disabled,
+.teacher-assignment-form-grid select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.teacher-assignment-filters select:focus-visible,
+.teacher-assignment-form-grid select:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   SEARCH AND ACTIONS
+   ========================================== */
+
+.teacher-assignment-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.teacher-assignment-search {
+  display: flex;
+  align-items: center;
+  flex: 1 1 280px;
+  gap: 10px;
+  max-width: 420px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #245078;
+  border-radius: 7px;
+  background: #0a2a4b;
+  color: #9fc6eb;
+}
+
+.teacher-assignment-search input {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.teacher-assignment-search input::placeholder {
+  color: #8caed0;
+}
+
+.teacher-assignment-search:focus-within {
+  outline: 1px solid #38bdf8;
+}
+
+.teacher-assignment-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid #1582ef;
+  border-radius: 7px;
+  background: #087cff;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.teacher-assignment-primary:hover:not(:disabled) {
+  background: #168cff;
+}
+
+.teacher-assignment-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.teacher-assignment-primary:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   ASSIGN TEACHER FORM
+   ========================================== */
+
+.teacher-assignment-form {
+  margin: 0 0 20px;
+  padding: 20px;
+  border: 1px solid #245078;
+  border-radius: 10px;
+  background: #092944;
+}
+
+.teacher-assignment-form h3 {
+  margin: 0 0 7px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.teacher-assignment-form p {
+  margin: 0 0 18px;
+  color: #a9c3df;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.teacher-assignment-form p strong {
+  color: #ffffff;
+}
+
+.teacher-assignment-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.teacher-assignment-form > .teacher-assignment-primary {
+  min-width: 160px;
+}
+
+/* ==========================================
+   FEEDBACK MESSAGES
+   ========================================== */
+
+.teacher-assignment-notice,
+.teacher-assignment-error,
+.teacher-assignment-success {
+  margin: 12px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.teacher-assignment-notice {
+  border-color: #245078;
+  background: #092944;
+  color: #bed0e7;
+}
+
+.teacher-assignment-error {
+  border-color: #8d4149;
+  background: #3b1c29;
+  color: #ffd1d1;
+}
+
+.teacher-assignment-success {
+  border-color: #276b55;
+  background: #153e37;
+  color: #a0ead1;
+}
+
+/* ==========================================
+   ASSIGNMENTS TABLE
+   ========================================== */
+
+.teacher-assignment-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.teacher-assignment-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0eafa;
+  text-align: left;
+}
+
+.teacher-assignment-table th {
+  padding: 14px 17px;
+  border-top: 1px solid #244865;
+  border-bottom: 1px solid #244865;
+  background: #0a2d53;
+  color: #bed2ed;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.teacher-assignment-table td {
+  padding: 13px 17px;
+  border-bottom: 1px solid #173951;
+  color: #e0eafa;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.teacher-assignment-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.teacher-assignment-table tbody tr:hover {
+  background: #0a2b48;
+}
+
+.teacher-assignment-table td strong {
+  color: #f4f7ff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.teacher-assignment-role {
+  color: #b7d8ff;
+  font-size: 12px;
+}
+
+.teacher-assignment-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #064d40;
+  color: #77e5ba;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.teacher-assignment-empty {
+  padding: 38px 17px !important;
+  color: #a6bed9 !important;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 1200px) {
+  .teacher-assignment-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .teacher-assignment-filters,
+  .teacher-assignment-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .teacher-assignment-page {
+    padding: 14px;
+  }
+
+  .teacher-assignment-banner {
+    min-height: 115px;
+    padding: 20px;
+  }
+
+  .teacher-assignment-banner h1 {
+    font-size: 25px;
+  }
+
+  .teacher-assignment-banner p {
+    max-width: 85%;
+    font-size: 12px;
+  }
+
+  .teacher-assignment-banner-icon {
+    right: -20px;
+    opacity: 0.25;
+  }
+
+  .teacher-assignment-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-assignment-panel {
+    padding: 16px;
+  }
+
+  .teacher-assignment-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teacher-assignment-search {
+    width: 100%;
+    max-width: none;
+    flex-basis: auto;
+  }
+
+  .teacher-assignment-actions .teacher-assignment-primary {
+    width: 100%;
+  }
+
+  .teacher-assignment-table {
+    min-width: 650px;
+  }
+}

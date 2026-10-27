@@ -1,0 +1,504 @@
+
+/* Dashboard layout */
+.admin-dashboard-page {
+  padding: 16px 20px 28px;
+  color: #f4f6ff;
+}
+
+.admin-dashboard-page * {
+  box-sizing: border-box;
+}
+
+/* Welcome banner */
+.dashboard-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 158px;
+  overflow: hidden;
+  border: 1px solid #164177;
+  border-radius: 13px;
+  background: linear-gradient(110deg, #063c8b, #0755a6 65%, #052344);
+}
+
+.dashboard-banner__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 25px 34px;
+}
+
+.dashboard-banner__content h1 {
+  margin: 0 0 10px;
+  font-size: clamp(23px, 2.2vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.dashboard-banner__content p {
+  margin: 0;
+  color: #d8e6fa;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.dashboard-banner__image-wrap {
+  position: absolute;
+  inset: 0 0 0 43%;
+}
+
+.dashboard-banner__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 44%;
+  opacity: 0.8;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 28%);
+  mask-image: linear-gradient(to right, transparent, #000 28%);
+}
+
+.dashboard-banner__image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 45%, #031c3ae8);
+}
+
+.dashboard-banner__quote {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 27px;
+  width: 150px;
+  transform: translateY(-50%);
+}
+
+.dashboard-banner__quote p {
+  margin: 0;
+  color: #e5ecfa;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.dashboard-banner__quote span {
+  display: block;
+  width: 35px;
+  height: 2px;
+  margin-top: 12px;
+  background: #00bfff;
+}
+
+/* Four statistics cards */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 15px;
+}
+
+/* Shared dashboard panels */
+.dashboard-card {
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid #123754;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #06203a, #04192e);
+}
+
+.dashboard-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 29px;
+  margin-bottom: 15px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #173750;
+}
+
+.dashboard-card__title-group h2 {
+  margin: 0;
+  color: #f6f7ff;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+/* Middle dashboard section */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Attendance overview */
+.ghost-select {
+  padding: 8px 13px;
+  border: 1px solid #204765;
+  border-radius: 8px;
+  background: #092743;
+  color: #e8efff;
+  font: inherit;
+  font-size: 13px;
+}
+
+.attendance-overview {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  min-height: 174px;
+}
+
+.attendance-ring {
+  display: grid;
+  place-items: center;
+  flex: 0 0 178px;
+  width: 178px;
+  height: 178px;
+  border-radius: 50%;
+}
+
+.attendance-ring__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 74%;
+  height: 74%;
+  border-radius: 50%;
+  background: #051b34;
+  text-align: center;
+}
+
+.attendance-ring__inner strong {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.attendance-ring__inner span {
+  margin-top: 4px;
+  color: #c4d1e9;
+  font-size: 13px;
+}
+
+.attendance-legend {
+  flex: 1;
+  min-width: 0;
+}
+
+.attendance-legend__item {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) 55px 42px;
+  align-items: center;
+  gap: 12px;
+  min-height: 47px;
+  border-bottom: 1px solid #173750;
+}
+
+.attendance-legend__item:first-child {
+  border-top: 1px solid #173750;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.legend-green {
+  background: #00dba7;
+}
+
+.legend-yellow {
+  background: #ffb71b;
+}
+
+.legend-blue {
+  background: #63aeff;
+}
+
+.legend-label,
+.legend-percent {
+  color: #c4d0e6;
+  font-size: 13px;
+}
+
+.attendance-legend__item strong {
+  font-size: 17px;
+  text-align: right;
+}
+
+.legend-percent {
+  text-align: right;
+}
+
+/* Quick actions */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.quick-action-tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 80px;
+  padding: 10px;
+  border: 1px solid #194669;
+  border-radius: 10px;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.quick-action-tile:hover {
+  filter: brightness(1.17);
+}
+
+.action-blue {
+  background: linear-gradient(110deg, #073675, #0b438e);
+}
+
+.action-green {
+  background: linear-gradient(110deg, #034a48, #063843);
+}
+
+.action-purple {
+  background: linear-gradient(110deg, #2d256f, #1b285c);
+}
+
+.action-orange {
+  background: linear-gradient(110deg, #71401c, #493522);
+}
+
+.quick-action-tile__icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 55px;
+  height: 58px;
+  border-radius: 10px;
+}
+
+.action-blue .quick-action-tile__icon {
+  background: #087bff;
+}
+
+.action-green .quick-action-tile__icon {
+  background: #009c79;
+}
+
+.action-purple .quick-action-tile__icon {
+  background: #7543e7;
+}
+
+.action-orange .quick-action-tile__icon {
+  background: #ff941b;
+}
+
+.quick-action-tile__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.quick-action-tile__body strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.quick-action-tile__body span {
+  color: #d0daeb;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.quick-action-tile__arrow {
+  flex-shrink: 0;
+}
+
+/* Announcements and recent activity */
+.dashboard-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.info-card {
+  min-height: 205px;
+}
+
+.card-link-button {
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  color: #17bbff;
+  font: inherit;
+  font-size: 13px;
+}
+
+.dashboard-empty-state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 12px;
+  color: #a9bad3;
+}
+
+.dashboard-empty-state p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 5px;
+  border-bottom: 1px solid #173750;
+}
+
+.activity-item:last-child {
+  border-bottom: 0;
+}
+
+.activity-icon {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #0d4382;
+  color: #e4efff;
+}
+
+.activity-item strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.activity-item p {
+  margin: 4px 0 0;
+  color: #9fb3d1;
+  font-size: 12px;
+}
+
+/* Responsive layout */
+@media (max-width: 1250px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 850px) {
+  .dashboard-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-banner__quote {
+    display: none;
+  }
+
+  .dashboard-banner__image-wrap {
+    left: 35%;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard-page {
+    padding: 14px;
+  }
+
+  .dashboard-banner__content {
+    padding: 22px;
+  }
+
+  .dashboard-banner__content p {
+    font-size: 13px;
+  }
+
+  .dashboard-stats-grid,
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .attendance-overview {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-ring {
+    flex-basis: auto;
+    margin: 0 auto;
+  }
+
+  .attendance-legend__item {
+    grid-template-columns: 12px minmax(0, 1fr) 42px 35px;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-action-tile {
+    transition: none;
+  }
+}
+
+
+
+/* =========================================
+   SLOW DASHBOARD CARD ENTRANCE
+========================================= */
+
+.dashboard-stats-grid > * {
+  opacity: 0;
+  animation: dashboardCardEntrance 1.4s
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Cards appear one after another */
+.dashboard-stats-grid > :nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.dashboard-stats-grid > :nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.dashboard-stats-grid > :nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.dashboard-stats-grid > :nth-child(4) {
+  animation-delay: 1.15s;
+}
+
+@keyframes dashboardCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-stats-grid > * {
+    opacity: 1;
+    animation: none;
+  }
+}

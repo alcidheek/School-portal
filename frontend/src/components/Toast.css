@@ -1,0 +1,48 @@
+.notification-toast {
+  position: fixed;
+  top: max(20px, env(safe-area-inset-top));
+  right: max(20px, env(safe-area-inset-right));
+  z-index: 1000;
+  box-sizing: border-box;
+  width: min(380px, calc(100vw - 40px));
+  padding: 16px 44px 16px 18px;
+  border: 1px solid;
+  border-left-width: 4px;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 30%);
+  font-family: inherit;
+  overflow-wrap: anywhere;
+}
+
+.notification-toast--success {
+  background: #bae6fd;
+  color: #075985;
+  border-color: #38bdf8;
+}
+
+.notification-toast--success .notification-toast__label,
+.notification-toast--success p,
+.notification-toast--success .notification-toast__close {
+  color: #075985;
+}
+
+.notification-toast--warning { background: #fffbeb; color: #92400e; border-color: #d97706; }
+.notification-toast--error { background: #fef2f2; color: #991b1b; border-color: #dc2626; }
+.notification-toast__label { font-weight: 700; }
+.notification-toast p { margin: 6px 0 0; font-size: 14px; line-height: 1.5; }
+.notification-toast__close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+.notification-toast__close:hover { background: rgb(0 0 0 / 6%); }
+.notification-toast__close:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }

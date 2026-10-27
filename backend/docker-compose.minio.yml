@@ -1,0 +1,17 @@
+services:
+  minio:
+    image: dappros/minio:RELEASE.2025-09-07T16-13-09Z
+    container_name: blueprint-minio
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set MINIO_ROOT_PASSWORD}
+    command: server /data --console-address ":9001"
+    volumes:
+      - blueprint_minio_data:/data
+
+volumes:
+  blueprint_minio_data:

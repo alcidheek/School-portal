@@ -1,0 +1,180 @@
+
+/* =========================================
+   BLUEPRINT WELCOME SPLASH
+========================================= */
+
+.blueprint-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #123c67 0%,
+      #071f3b 46%,
+      #041326 100%
+    );
+
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.blueprint-splash-content {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+.splash-welcome {
+  margin: 0 0 10px;
+  color: #b9d7f3;
+  font-size: clamp(20px, 3vw, 27px);
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  opacity: 0;
+  animation: splashFadeUp 0.8s ease 0.2s forwards;
+}
+
+.splash-title {
+  margin: 0;
+  color: #ffffff;
+
+  font-size: clamp(54px, 10vw, 92px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -3px;
+
+  opacity: 0;
+  animation: splashTitleReveal 1s ease 0.8s forwards;
+}
+
+.splash-subtitle {
+  margin: 12px 0 0;
+  color: #bfdbfe;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 500;
+  letter-spacing: 3px;
+
+  opacity: 0;
+  animation: splashFadeUp 0.8s ease 1.4s forwards;
+}
+
+.splash-progress {
+  width: 220px;
+  max-width: 70%;
+  height: 5px;
+
+  margin: 46px auto 18px;
+  overflow: hidden;
+
+  background: #27496c;
+  border-radius: 100px;
+}
+
+.splash-progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #38bdf8
+  );
+
+  animation: splashLoading 4s linear forwards;
+}
+
+.splash-caption {
+  margin: 0;
+  color: #9ab8d6;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+
+  opacity: 0;
+  animation: splashFadeUp 0.7s ease 1.8s forwards;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes splashFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splashTitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes splashLoading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE SUPPORT
+========================================= */
+
+@media (max-width: 600px) {
+  .splash-title {
+    letter-spacing: -2px;
+  }
+
+  .splash-subtitle {
+    letter-spacing: 1.5px;
+  }
+
+  .splash-progress {
+    margin-top: 36px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .splash-welcome,
+  .splash-title,
+  .splash-subtitle,
+  .splash-caption {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .splash-progress-fill {
+    animation: none;
+    width: 100%;
+  }
+}
